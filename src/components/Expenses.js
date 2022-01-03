@@ -3,7 +3,7 @@ import ExpenseItem from "./ExpenseItem";
 
 function Expenses(props){
     return (
-        <div>
+        <div className='expenses'>
       <ExpenseItem 
       title={props.expenses[0].title} date={props.expenses[0].date} price={props.expenses[0].price}>
       </ExpenseItem>
