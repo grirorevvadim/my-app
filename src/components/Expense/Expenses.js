@@ -12,8 +12,8 @@ function Expenses(props){
   };
 
     return (<div>
-      <ExpensesFilter value = {selectedYear} onSelectYear = {selectDataHandler}/>
         <div className='expenses'>
+        <ExpensesFilter value = {selectedYear} onSelectYear = {selectDataHandler}/>
       <ExpenseItem 
       title={props.expenses[0].title} date={props.expenses[0].date} price={props.expenses[0].price}>
       </ExpenseItem>
