@@ -5,8 +5,14 @@ import ExpensesFilter from './ExpensesFilter';
 
 function Expenses(props){
   const [selectedYear, setSelectedYear] = useState(props.year);
+
+  const selectDataHandler = (year) => {
+    console.log(year);
+    setSelectedYear(year);
+  };
+
     return (<div>
-      <ExpensesFilter value = {selectedYear}/>
+      <ExpensesFilter value = {selectedYear} onSelectYear = {selectDataHandler}/>
         <div className='expenses'>
       <ExpenseItem 
       title={props.expenses[0].title} date={props.expenses[0].date} price={props.expenses[0].price}>

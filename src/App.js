@@ -40,7 +40,6 @@ function App() {
   ];
   return (<div>
     <NewExpense onSaveNewData ={newDataHandler}/>
-    <ExpensesFilter onSelectYear = {selectDataHandler}/>
     <Expenses year = {year} expenses={expenses}></Expenses>;
 </div>);
 }
