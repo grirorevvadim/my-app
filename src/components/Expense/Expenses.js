@@ -4,28 +4,21 @@ import ExpenseItem from "./ExpenseItem";
 import ExpensesFilter from './ExpensesFilter';
 
 function Expenses(props){
-  const [selectedYear, setSelectedYear] = useState(props.year);
+  const [filteredYear,setFilteredYear] = useState("2022");
+
+  const filteredExpenses = props.expenses.filter(expense=>{
+    return expense.date.getFullYear().toString()===filteredYear});
 
   const selectDataHandler = (year) => {
     console.log(year);
-    setSelectedYear(year);
+    setFilteredYear(year);
   };
 
     return (<div>
         <div className='expenses'>
-        <ExpensesFilter value = {selectedYear} onSelectYear = {selectDataHandler}/>
-      <ExpenseItem 
-      title={props.expenses[0].title} date={props.expenses[0].date} price={props.expenses[0].price}>
-      </ExpenseItem>
-      <ExpenseItem 
-      title={props.expenses[1].title} date={props.expenses[1].date} price={props.expenses[1].price}>
-      </ExpenseItem>
-      <ExpenseItem 
-      title={props.expenses[2].title} date={props.expenses[2].date} price={props.expenses[2].price}>
-      </ExpenseItem>
-      <ExpenseItem 
-      title={props.expenses[3].title} date={props.expenses[3].date} price={props.expenses[3].price}>
-      </ExpenseItem>
+        <ExpensesFilter selected = {filteredYear} onSelectYear = {selectDataHandler}/>
+        {filteredExpenses.map(expense => <ExpenseItem key = {expense.id}
+        title={expense.title} date ={expense.date} price = {expense.price} />)}
     </div>
     </div>
     );
