@@ -54,7 +54,7 @@ return (<form onSubmit={submitHandler}>
     </div>
     <div className='new-expense__actions'>
         <button type='submit'>Add expense</button>
-        <button onClick={cancelHandler}> Cancel </button>
+        <button type='button' onClick={cancelHandler}> Cancel </button>
     </div>
 </form>);
 };
